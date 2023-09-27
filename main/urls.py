@@ -3,9 +3,9 @@ import datetime
 from django.http import HttpResponseRedirect
 from django.urls import path, reverse
 
-from main.views import (create_product, login_user, logout_user, register,
-                        show_json, show_json_by_id, show_main, show_xml,
-                        show_xml_by_id)
+from main.views import (create_product, delete_product, edit_product,
+                        login_user, logout_user, register, show_json,
+                        show_json_by_id, show_main, show_xml, show_xml_by_id)
 
 app_name = 'main'
 
@@ -19,4 +19,6 @@ urlpatterns = [
     path('register/', register, name='register'),
     path('login/', login_user, name='login'),
     path('logout/', logout_user, name='logout'),
+    path('edit-product/<int:id>', edit_product, name='edit_product'),
+    path('delete/<int:id>', delete_product, name='delete_product'),
 ]
